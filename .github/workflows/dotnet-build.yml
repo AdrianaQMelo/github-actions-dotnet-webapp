@@ -23,4 +23,4 @@ jobs:
       - name: Executar script personalizado
         run: |
           echo "Iniciando tarefa personalizada..."
-          node github/scripts/customize.js
+          node scripts/customize.js
