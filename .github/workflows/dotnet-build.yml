@@ -1,0 +1,26 @@
+name: Executar tarefa em push e por agendamento
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 * * * *' # A cada hora
+
+jobs:
+  executar-tarefa:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v3 # ✅ Action pré-existente para clonar o repositório
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Executar script personalizado
+        run: |
+          echo "Iniciando tarefa personalizada..."
+          node scripts/customize.js
